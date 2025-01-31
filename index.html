@@ -2,22 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Monaco editor</title>
+    <title>Monaco Editor with Emmet</title>
     <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/editor/editor.main.min.css">
   </head>
   <body style="width:100vw;height:100dvh;margin:0;overflow:hidden;">
     <div id="container" style="width:100%;height:50%;"></div>
+
+    <!-- Load scripts -->
     <script src="https://unpkg.com/emmet-monaco-es/dist/emmet-monaco.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
     <script>
-      // require is provided by loader.min.js.
-      require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs' }});
-      require(["vs/editor/editor.main"], () => {
+      require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs' } });
+      require(["vs/editor/editor.main"], function () {
+        // Create the Monaco editor instance
         const editor = monaco.editor.create(document.getElementById('container'), {
           language: 'html',
           theme: 'vs-dark',
         });
-      emmetMonaco.emmetHTML(editor)
+        emmetMonaco.emmetHTML(editor);
       });
     </script>
   </body>
