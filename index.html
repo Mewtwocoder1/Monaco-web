@@ -27,8 +27,13 @@
           theme: 'vs-dark',
         });
       });
+
       document.getElementById("preview");
-      preview.contentDocument.body.innerHTML = "<button>Test</button>"
+      
+      editor.addEventListener("keydown", function (e) {
+        let text = editor.getValue()
+        preview.contentDocument.body.innerHTML = text
+      });
     </script>
   </body>
 </html>
