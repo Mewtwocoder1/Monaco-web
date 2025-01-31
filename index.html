@@ -7,6 +7,7 @@
   </head>
   <body style="width:100vw;height:100dvh;margin:0;overflow:hidden;">
     <div id="container" style="width:100%;height:50%;"></div>
+    <iframe id="preview" style="width:100%;height:50%;"></iframe>
 
     <!-- Load scripts -->
     <script src="https://unpkg.com/emmet-monaco-es/dist/emmet-monaco.min.js"></script>
@@ -26,6 +27,8 @@
           theme: 'vs-dark',
         });
       });
+      document.getElementById("preview");
+      preview.contentDocument.body.innerHTML = text;
     </script>
   </body>
 </html>
