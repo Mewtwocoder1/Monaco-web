@@ -13,12 +13,12 @@
       // require is provided by loader.min.js.
       require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs' }});
       require(["vs/editor/editor.main"], () => {
-        monaco.editor.create(document.getElementById('container'), {
+        const editor = monaco.editor.create(document.getElementById('container'), {
           language: 'html',
           theme: 'vs-dark',
         });
+      emmetMonaco.emmetHTML(editor)
       });
-      emmetMonaco.emmetHTML("#container")
     </script>
   </body>
 </html>
