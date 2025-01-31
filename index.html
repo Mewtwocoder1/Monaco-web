@@ -11,15 +11,20 @@
     <!-- Load scripts -->
     <script src="https://unpkg.com/emmet-monaco-es/dist/emmet-monaco.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+
     <script>
+      // Configure Monaco loader
       require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs' } });
+
       require(["vs/editor/editor.main"], function () {
-        // Create the Monaco editor instance
+        // Initialize Emmet before creating any Monaco editor instance
+        const disposeEmmet = emmetMonaco.emmetHTML(monaco, ['html', 'php']);
+
+        // Now create the Monaco editor instance
         const editor = monaco.editor.create(document.getElementById('container'), {
           language: 'html',
           theme: 'vs-dark',
         });
-        emmetMonaco.emmetHTML(editor);
       });
     </script>
   </body>
