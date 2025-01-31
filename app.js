@@ -10,11 +10,13 @@ require(["vs/editor/editor.main"], function () {
     language: 'html',
     theme: 'vs-dark',
   });
+  
+  document.getElementById("preview");
+  editor.addEventListener("keydown", function (e) {
+    let text = editor.getValue();
+    preview.contentDocument.body.innerHTML = text;
+  });
+  
+  });
 });
 
-document.getElementById("preview");
-
-editor.addEventListener("keydown", function (e) {
-  let text = editor.getValue()
-  preview.contentDocument.body.innerHTML = text
-});
