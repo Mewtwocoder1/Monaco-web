@@ -11,8 +11,7 @@ require(["vs/editor/editor.main"], function () {
     theme: 'vs-dark',
   });
   
-  monacoEdit.addEventListener("keydown", function (e) {
-    let value = monacoEdit.getValue();
-    preview.contentDocument.body.innerHTML = (value);
+  monacoEdit.onDidChangeModelContent(() => {
+    preview.contentDocument.body.innerHTML = monacoEdit.getValue();
   });
 });
